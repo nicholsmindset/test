@@ -16,6 +16,16 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
+## Deploy to Vercel (one command)
+
+```bash
+cd health-mvp
+vercel deploy --yes        # preview URL
+vercel deploy --prod --yes # production URL
+```
+
+Static site, no build step. The included `vercel.json` enables clean URLs.
+
 ## What's interactive
 
 - Tap activity cards to mark them done (persists to `localStorage`)
