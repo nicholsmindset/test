@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  const STORAGE_KEY = "wellbeing.mvp.v1";
+  const STORAGE_KEY = "wellbeing.mvp.v2";
 
   const todayActivities = [
     { id: "walk", time: "8:00 AM", label: "Morning walk", type: "t-walk", icon: iconWalk },
@@ -42,7 +42,7 @@
   const state = load() || {
     activeTab: "home",
     range: "weekly",
-    feeling: 20,
+    feeling: 40,
     completedActivities: {},
     history: [],
   };
