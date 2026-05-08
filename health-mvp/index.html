@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#efe7ff" />
+    <title>Wellbeing — Health Tracker MVP</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="stage" id="stage">
+      <!-- Splash -->
+      <section class="phone" data-screen="splash" aria-label="Splash screen">
+        <div class="screen splash">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span class="status-icons">
+              <span class="bars"></span>
+              <span class="wifi"></span>
+              <span class="battery"></span>
+            </span>
+          </div>
+          <div class="splash-body">
+            <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#a78bfa" />
+                  <stop offset="100%" stop-color="#f472b6" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M100 160 C30 110 20 60 55 35 C80 18 100 40 100 55 C100 40 120 18 145 35 C180 60 170 110 100 160 Z"
+                fill="none"
+                stroke="url(#g1)"
+                stroke-width="8"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M70 78 h20 l8 -14 l10 28 l9 -18 h23"
+                fill="none"
+                stroke="url(#g1)"
+                stroke-width="6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <h1 class="brand">Wellbeing</h1>
+            <p class="tagline">Track how you feel, every day.</p>
+            <button class="cta" id="enterApp">Get started</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Home -->
+      <section class="phone" data-screen="home" aria-label="Home screen">
+        <div class="screen home">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span class="status-icons">
+              <span class="bars"></span>
+              <span class="wifi"></span>
+              <span class="battery"></span>
+            </span>
+          </div>
+
+          <header class="home-header">
+            <div class="avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <circle cx="20" cy="20" r="20" fill="#e9defc" />
+                <circle cx="20" cy="16" r="7" fill="#b794f4" />
+                <path d="M6 36 C10 26 30 26 34 36 Z" fill="#b794f4" />
+              </svg>
+            </div>
+            <div class="hello">
+              <div class="hi">
+                Hello Jhon <span class="wave" aria-hidden="true">👋</span>
+              </div>
+              <div class="sub">How are you feeling today?</div>
+            </div>
+            <button class="bell" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" width="22" height="22">
+                <path
+                  d="M12 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM10 19a2 2 0 0 0 4 0"
+                  fill="none"
+                  stroke="#5b3aa3"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span class="dot"></span>
+            </button>
+          </header>
+
+          <div class="section-row">
+            <h2>Today's activity log</h2>
+            <button class="link" id="seeAll">See all</button>
+          </div>
+
+          <div class="grid activities" id="activities"></div>
+
+          <div class="section-row">
+            <h2>Today's suggestions for you</h2>
+          </div>
+
+          <div class="grid suggestions" id="suggestions"></div>
+
+          <nav class="tabbar" aria-label="Bottom navigation">
+            <button class="tab active" data-tab="home" aria-label="Home">
+              <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a2 2 0 0 1-2 2h-4v-7h-6v7H5a2 2 0 0 1-2-2z" fill="currentColor"/></svg>
+            </button>
+            <button class="tab" data-tab="history" aria-label="History">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+            <button class="tab" data-tab="checkin" aria-label="Check in">
+              <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="tab" data-tab="report" aria-label="Health report">
+              <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Report -->
+      <section class="phone" data-screen="report" aria-label="Health report screen">
+        <div class="screen report">
+          <div class="status-bar">
+            <span>9:41</span>
+            <span class="status-icons">
+              <span class="bars"></span>
+              <span class="wifi"></span>
+              <span class="battery"></span>
+            </span>
+          </div>
+
+          <header class="report-header">
+            <h1>Health report</h1>
+            <div class="header-actions">
+              <button class="bell" aria-label="Notifications">
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <path d="M12 3a6 6 0 0 0-6 6v3l-2 3h16l-2-3V9a6 6 0 0 0-6-6zM10 19a2 2 0 0 0 4 0"
+                    fill="none" stroke="#5b3aa3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <button class="profile" aria-label="Profile">
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <circle cx="12" cy="8" r="4" fill="none" stroke="#5b3aa3" stroke-width="1.6"/>
+                  <path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" fill="none" stroke="#5b3aa3" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="segmented" role="tablist">
+            <button class="seg active" role="tab" data-range="weekly">Weekly</button>
+            <button class="seg" role="tab" data-range="monthly">Monthly</button>
+            <button class="seg" role="tab" data-range="yearly">Yearly</button>
+          </div>
+
+          <div class="status-block">
+            <h2 class="status-title" id="statusTitle">Satisfied</h2>
+            <p class="status-sub" id="statusSub">Feel comfortable</p>
+          </div>
+
+          <div class="visual">
+            <svg class="stomach" viewBox="0 0 260 240" aria-hidden="true">
+              <!-- esophagus -->
+              <path d="M150 18 L150 60" stroke="#7aa7ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <!-- stomach body: classic J-curve sac -->
+              <path
+                d="M150 60
+                   C 150 56, 158 56, 162 60
+                   C 192 64, 214 84, 214 118
+                   C 214 158, 188 188, 148 192
+                   C 116 195, 92 178, 86 150
+                   C 84 138, 88 128, 96 124
+                   C 100 122, 102 118, 100 112
+                   C 96 100, 102 84, 116 76
+                   C 128 70, 140 70, 150 76
+                   Z"
+                fill="#e1ecff"
+                stroke="#7aa7ff"
+                stroke-width="2.6"
+                stroke-linejoin="round"
+              />
+              <!-- duodenum hook -->
+              <path d="M214 130 C 226 132, 232 144, 226 156 C 222 164, 214 166, 208 162"
+                    fill="none" stroke="#7aa7ff" stroke-width="2.6" stroke-linecap="round"/>
+              <!-- labels + leaders -->
+              <text x="186" y="14" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7a6cad">Satisfied</text>
+              <line x1="184" y1="11" x2="156" y2="22" stroke="#7a6cad" stroke-width="1" stroke-dasharray="2 3"/>
+              <text x="14" y="106" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7a6cad">Very full</text>
+              <line x1="60" y1="103" x2="92" y2="118" stroke="#7a6cad" stroke-width="1" stroke-dasharray="2 3"/>
+              <text x="20" y="172" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#7a6cad">Hungry</text>
+              <line x1="62" y1="168" x2="92" y2="172" stroke="#7a6cad" stroke-width="1" stroke-dasharray="2 3"/>
+            </svg>
+
+            <div class="slider-wrap" aria-label="How are you feeling?">
+              <div class="slider-track">
+                <div class="slider-fill" id="sliderFill"></div>
+                <div class="slider-tick" style="top:8%"></div>
+                <div class="slider-tick" style="top:50%"></div>
+                <div class="slider-tick" style="top:92%"></div>
+              </div>
+              <input
+                type="range"
+                id="feelSlider"
+                min="0"
+                max="100"
+                value="20"
+                step="1"
+                aria-label="Feeling level"
+              />
+              <div class="slider-thumb" id="sliderThumb" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <button class="cta next" id="nextBtn">Next</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <small>Wellbeing MVP · tap any screen to interact</small>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
