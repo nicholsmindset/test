@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+  --color-gold: #c9a84c;
+  --color-gold-light: #e8c96a;
+  --color-gold-dark: #9a7a32;
+  --color-ink: #0a0a0a;
+  --color-ink-2: #111111;
+  --color-ink-3: #1a1a1a;
+  --color-cream: #f0ece0;
+  --color-cream-dim: #b8b0a0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f0ece0;
+}
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin: 0 auto;
+}
+
+/* Section padding */
+.section-pad {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(201, 168, 76, 0.12);
+}
+
+/* Barber pole animation */
+@keyframes pole {
+  from { background-position: 0 0; }
+  to   { background-position: 0 40px; }
+}
+.barber-pole {
+  background: repeating-linear-gradient(
+    -45deg,
+    #c9a84c 0px,
+    #c9a84c 8px,
+    #0a0a0a 8px,
+    #0a0a0a 16px,
+    #f0ece0 16px,
+    #f0ece0 24px,
+    #0a0a0a 24px,
+    #0a0a0a 32px
+  );
+  background-size: 100% 40px;
+  animation: pole 1.2s linear infinite;
+}
+
+/* Smooth fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
